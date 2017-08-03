@@ -11,5 +11,6 @@ setup(name='pyOceanus',
       install_requires=[
           'requests'
       ],
+      test_suite='pyOceanus.tests',
       zip_safe=False)
 
