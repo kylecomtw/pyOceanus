@@ -16,13 +16,17 @@ class OceanusData:
         pos_list = list(map(lambda x: x["pos"], sentences))
         words_list = list(map(lambda x: x["words"], sentences))
         ner_list = list(map(lambda x: x["ner"], sentences))
+        offStart_list = list(map(lambda x: x["chstart"], sentences))
+        offEnd_list = list(map(lambda x: x["chend"], sentences))
         toks = []
         for sent_i in range(len(pos_list)):
             tok_iter = zip(words_list[sent_i], \
-                           pos_list[sent_i], ner_list[sent_i])
+                           pos_list[sent_i], ner_list[sent_i], \
+                           offStart_list[sent_i],\
+                           offEnd_list[sent_i])
             tok_vec = []
-            for w, p, n in tok_iter:
-                tok_vec.append((w, p, n))
+            for w, p, n, cs, ce in tok_iter:
+                tok_vec.append((w, p, n, cs, ce))
             toks.append(tok_vec)        
         return toks
 
