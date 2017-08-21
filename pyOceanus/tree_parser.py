@@ -1,4 +1,12 @@
+import pdb
+
 class Tree:
+    def toJSON(self):
+        return {
+            "node": self.node, 
+            "children":  [x.toJSON() for x in self.children]
+        }
+
     def __init__(self):
         self.node = ""
         self.children = []

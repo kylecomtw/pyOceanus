@@ -5,7 +5,11 @@ from .oceanus_data import OceanusData
 
 class Oceanus:
     def __init__(self, url = None):
-        self.url = "http://127.0.0.1:8090/nlp/parse"        
+        if not url:
+            self.url = "http://127.0.0.1:8090/nlp/parse"        
+        else:
+            self.url = url
+
         if not self.test_url():
             raise Exception("%s not responding" % self.url)
 

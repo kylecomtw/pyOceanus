@@ -57,8 +57,10 @@ class OceanusData:
         tree_iter = map(lambda x: x["tree"], sentences)
         trees = []
         for tree_str in tree_iter:
+            tree_str = "".join([x.strip() for x in tree_str.split("\n")])
             tree_x = parse_tree_repr(tree_str)
             trees.append(tree_x)
+        pdb.set_trace()
         return trees
    
     def get_token(self, sentence_idx, tok_idx):
