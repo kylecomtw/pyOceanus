@@ -1,4 +1,3 @@
-import pdb
 
 class Tree:
     def toJSON(self):

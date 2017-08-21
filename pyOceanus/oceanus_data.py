@@ -1,5 +1,4 @@
 import re
-import pdb
 from .tree_parser import parse_tree_repr
 
 dep_re = re.compile("([a-z:]*)\(([^\s-]*)-(\d+),\s?([^\s-]*)-(\d+)\)")
