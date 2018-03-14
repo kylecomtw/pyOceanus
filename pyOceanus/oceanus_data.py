@@ -9,6 +9,16 @@ class OceanusData:
         self.deps = self.prepare_dependency()
         self.tokens = self.prepare_tokens()
         self.trees = self.prepare_trees()
+    
+    def __repr__(self):
+        format_func = lambda x: "{0}({1})".format(x[0], x[1])
+        nSent = len(self.tokens)        
+        if nSent > 0:
+            sent1 = "/".join([format_func(x) for x in self.tokens[0]])
+            return "OceanusData: %d sentence(s): " % nSent + sent1
+        else:
+            return "<OceanusData: empty>"
+
 
     def prepare_tokens(self):
         sentences = self.nlp["data"]["sentences"]
